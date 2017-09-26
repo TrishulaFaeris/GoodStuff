@@ -2,6 +2,10 @@ package attendance;
 
 public class Student implements Attendee{
 
+	public Student(String first, String last) {
+
+	}
+
 	public boolean isPresent() {
 		// TODO Auto-generated method stub
 		return false;
