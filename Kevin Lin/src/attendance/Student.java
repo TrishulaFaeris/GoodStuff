@@ -2,7 +2,11 @@ package attendance;
 
 public class Student implements Attendee{
 
-```	public boolean isPresent() {
+	public Student(String first, String last) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public boolean isPresent() {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -35,6 +39,12 @@ public class Student implements Attendee{
 	public String getReportString() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean matches(String first, String last) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
