@@ -23,18 +23,38 @@ public class Utility{
 	}
 
 	public static boolean keywordIsIsolated(int psn, String keyword, String s){
-		if(psn != 0) {
-			if(s.substring(psn,keyword.length()+1).equalsIgnoreCase(keyword)) {
-				if
+		boolean Isolated = false;
+		if(psn == 0) 
+		{
+			if(s.substring(psn,keyword.length()+1).equalsIgnoreCase(keyword)) 
+			{
+				if(s.substring(s.indexOf(psn+keyword.length()),(s.indexOf(psn+keyword.length()+1))).compareTo("a") < 0)
+					Isolated = true;
 			}
-			else {
-				return false;
-			}
+			else
+				Isolated = false;
 		}
 		else
 		{
-			
+			if(s.substring(psn,keyword.length()+1).equalsIgnoreCase(keyword)) 
+			{
+				if(s.substring(s.indexOf(psn+keyword.length()),(s.indexOf(psn+keyword.length()+1))).compareTo("a") < 0)
+				{
+					if(s.substring(psn-1,psn).compareTo("a") <0 )
+					{
+						Isolated = true;
+					}
+				}
+			}
+			else
+			{
+				Isolated = false;
+			}
 		}
+		if(Isolated)
+			return true;
+		else
+			return false;
 	}
 
 	public static boolean noNegations(String s, int psn){
