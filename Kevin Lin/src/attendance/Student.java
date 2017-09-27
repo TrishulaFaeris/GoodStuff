@@ -65,7 +65,7 @@ public class Student implements Attendee{
 		return statment;
 	}
 
-	public boolean matches(String first, String last) {
+	public boolean mathces(String first, String last) {
 		String fullName = fName + lName;
 		String inputName = first + last;
 		if(fullName.equalsIgnoreCase(inputName)) {
