@@ -55,11 +55,11 @@ public class Student implements Attendee{
 	public String getReportString() {
 		statment = lName;
 		while(statment.length()<20) {
-			statment += "";
+			statment += " ";
 		}
 		statment += fName;
 		while(statment.length()<40) {
-			statment +="";
+			statment +=" ";
 		}
 		if(!this.isPresent()) {
 			statment += "ABSENT";
@@ -67,7 +67,7 @@ public class Student implements Attendee{
 		else {
 			statment += "PRESENT";
 		}
-		return statment;
+		return statment + "\n";
 	}
 
 	public boolean mathces(String first, String last) {
