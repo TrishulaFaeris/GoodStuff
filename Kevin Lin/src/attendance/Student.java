@@ -9,25 +9,30 @@ public class Student implements Attendee{
 	public Student(String first, String last) {
 		fName = first;
 		lName = last;
+		isHere = false;
+		
 	}
 
 	public boolean isPresent() {
-		if(!isHere) {
+		/*if(!isHere) {
 			return false;
 		}
 		else {
 			return true;
 		}
+		*/	
+		return isHere;
 	}
 
 	public void setPresent(boolean present) {
-		if(!present) {
+		/*if(!present) {
 			isHere = false;		
 		}
 		else {
 			isHere = true;		
 		}
-		
+		*/
+		isHere = present;
 	}
 
 	public String getFirstName() {
@@ -48,11 +53,11 @@ public class Student implements Attendee{
 	}
 
 	public String getReportString() {
-		statment = fName;
+		statment = lName;
 		while(statment.length()<20) {
 			statment += "";
 		}
-		statment += lName;
+		statment += fName;
 		while(statment.length()<40) {
 			statment +="";
 		}
