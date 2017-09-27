@@ -1,50 +1,81 @@
 package attendance;
 
 public class Student implements Attendee{
-
+	public String fName;
+	public String lName;
+	public String statment;
+	public boolean isHere;
+	
 	public Student(String first, String last) {
-		// TODO Auto-generated constructor stub
+		fName = first;
+		lName = last;
 	}
 
 	public boolean isPresent() {
-		// TODO Auto-generated method stub
-		return false;
+		if(!isHere) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 
 	public void setPresent(boolean present) {
-		// TODO Auto-generated method stub
+		if(!present) {
+			isHere = false;		
+		}
+		else {
+			isHere = true;		
+		}
 		
 	}
 
 	public String getFirstName() {
-		// TODO Auto-generated method stub
-		return null;
+		return fName;
 	}
 
 	public String getLastName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public boolean mathces(String first, String last) {
-		// TODO Auto-generated method stub
-		return false;
+		return lName;
 	}
 
 	public boolean matches(String last) {
-		// TODO Auto-generated method stub
-		return false;
+		if(lName.equalsIgnoreCase(last)){
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	public String getReportString() {
-		// TODO Auto-generated method stub
-		return null;
+		statment = fName;
+		while(statment.length()<20) {
+			statment += "";
+		}
+		statment += lName;
+		while(statment.length()<40) {
+			statment +="";
+		}
+		if(!this.isPresent()) {
+			statment += "ABSENT";
+		}
+		else {
+			statment += "PRESENT";
+		}
+		return statment;
 	}
 
-	@Override
 	public boolean matches(String first, String last) {
-		// TODO Auto-generated method stub
-		return false;
+		String fullName = fName + lName;
+		String inputName = first + last;
+		if(fullName.equalsIgnoreCase(inputName)) {
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
+
 
 }
