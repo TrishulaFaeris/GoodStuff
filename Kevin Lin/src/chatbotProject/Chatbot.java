@@ -3,27 +3,28 @@ package chatbotProject;
 public class Chatbot {
 
 	private String userName;
-	private Topic Kevin;
+	private Topic ben;
 	private boolean chatting;
 	
+	
 	public Chatbot() {
-		Kevin = new ChatbotKevin();
+		ben = new ChatbotKevin();
 		userName = "unknown user";
 		chatting = true;
 	}
+
 	public void startTalking() {
 		ChatbotMain.print("Welcome to our chatbot! What is your name?");
 		userName = ChatbotMain.getInput();
+		chatting = true;
 		while(chatting) {
 			ChatbotMain.print("What do you want to talk about?");
-			string response = ChatbotMain.getInput();
-			if(Kevin.isTriggered(response)) {
+			String response = ChatbotMain.getInput();
+			if(ben.isTriggered(response)) {
 				chatting = false;
-				Kevin.startChatting();
-			}
-			else
-			{
-				ChatbotMain.print("I am sorry. I do not understand.");
+				ben.startChatting(response);
+			}else {
+				ChatbotMain.print("I'm sorry. I don't understand.");
 			}
 		}
 	}
