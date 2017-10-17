@@ -8,13 +8,80 @@ public class ArraysMain {
 	private int[] intRay;
 	
 	public ArraysMain() {
-		intRay = new int[100];
+		//intRay = new int[100];
 		//populuate(intRay);
 		//checkOccurences(intRay, 3,18);
 		//Arrays is a Utility class included in Java for formatting input
-		populuate1toN(intRay);
-		shuffle(intRay);
-		System.out.println(Arrays.toString(intRay));
+		//populuate1toN(intRay);
+		//frontToBack(intRay);
+		//System.out.println(Arrays.toString(intRay));
+		//int[] consecTest1 = {1,2,3,4,5,7,8,9,10,11,45,46,47};
+		//int[] consecTest2 = {10,11,12,13,14,15,6,7,8,9,10,45,46,47};
+		//System.out.println("The longest sequence in the first test is " + longestConsecutiveSequence(consecTest1));
+		//System.out.println("The longest sequence in the second test is " + longestConsecutiveSequence(consecTest2));
+		int[] randomRolls = new int[1000];
+		populuate(randomRolls);
+		int [] result = longestConsecSeqAndPos(randomRolls);
+		System.out.println("The longest sequence of dice rolls is " + result[0] + " it happened on the " + (result[1]+1) +);
+		
+	}
+	
+	private int[] longestConsecSeqAndPos(int[] arr) {
+		
+		return null;
+	}
+
+	public int longestConsecutiveSequence(int[] arr) {
+		int large = 0;
+		int chall = 1;
+		for(int i = 0; i < arr.length-1; i++) {
+			if(isConsecutive(arr, i)) {
+				chall ++;
+				if(chall > large) {
+					large = chall;
+				}
+			}
+			else chall = 1;
+		}
+		return large;
+	}
+	public boolean isConsecutive(int[] arr, int pos) {
+		
+			if(arr[pos+1] == arr[pos]+1) {
+				return true;
+			}
+		return false;
+	}
+	public int[] reverseOrder(int[] arr) {
+		int[] sampleArray = new int[arr.length];
+		for(int i = 0; i < arr.length; i++) {
+			sampleArray[i] = arr[arr.length-1-i];
+		}
+		return sampleArray;
+	}
+	
+	public void cycleThrough(int[] arr, int n) {
+		for(int i =0; i < n; i++) {
+			frontToBack(arr);
+		}
+	}
+	
+	public void frontToBack(int[] arr) {
+		int placeholder = arr[0];
+		for(int i = 0; i < arr.length-1; i++) {
+			arr[i] = arr[i+1];
+		}
+		arr[arr.length-1] = placeholder;
+	}
+	
+	public int countLessThan(int[] arr, int n) {
+		int count = 0;
+		for(int value: arr) {
+			if(value< n) {
+				if(value < n)count++;
+			}
+		}
+		return count;
 	}
 	private void shuffle(int[] arr) {
 		for(int i = 0; i < arr.length; i++) {
