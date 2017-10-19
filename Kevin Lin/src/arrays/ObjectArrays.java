@@ -3,12 +3,14 @@ package arrays;
 public class ObjectArrays {
 	
 	public ObjectArrays() {
-		Object[] people = new Object[20];
+		Person[] people = new Person[20];
 		populate(people);
-		people[0] = new Thing("coffee maker");
+		//people[0] = new Thing("coffee maker");
 		for(Object p : people) {
 			System.out.println(p);
 		}
+		Person[]group = selectGroup(people, 4);
+		System.out.println(Person.toString(group));
 	}
 
 	private void populate(Object[] people) {
@@ -30,7 +32,22 @@ public class ObjectArrays {
 			}
 		}
 	}
-
+	public double countDifferences(Person[] arr1, Person[] arr2) {
+		double numDiff = 0;
+		for(int i = 0; i < arr1.length; i++) {
+			if(arr1[i] != arr2[i]) {
+				numDiff ++;
+			}
+		}
+		return numDiff;
+	}
+	public void testShuffling() {
+		double sum;
+		for(int i =0; i < 100; i++) {
+			sum += countDifferences(Person[] arr1, Person[] arr2);
+		}
+		System.out.println(sum/100); 
+	}
 	private Borough randomBorough() {
 		return Borough.NY_BOROUGHS[(int) (Math.random()*Borough.NY_BOROUGHS.length)];
 	}
@@ -42,4 +59,26 @@ public class ObjectArrays {
 	private String get(String[] a) {
 		return a[(int)(Math.random()*a.length)];
 	}
+	private Person[] selectGroup(Person[] population,int length) {
+		Person[] arr = new Person[length];
+		int randNum = 0;
+		for(int i = 0; i < population.length; i++) {
+			randNum = (int)(Math.random()*(population.length+1));
+			arr[i] = population[randNum];
+			for(Person value: arr) {
+				if(value == population[randNum]) {
+					randNum = (int)(Math.random()*(population.length+1));
+					arr[i] = population[randNum];
+					break;
+				}
+			}
+			
+		}
+		return arr; 
+		//Person[] group = new Person[length];
+		//group[0] = selectAPerson(population);
+		//for(int i = 1; i < length; i++) {
+			
+		//}
+	} 
 }

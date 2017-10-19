@@ -22,8 +22,6 @@ public class ArraysMain {
 		int[] randomRolls = new int[1000];
 		populuate(randomRolls);
 		int [] result = longestConsecSeqAndPos(randomRolls);
-		System.out.println("The longest sequence of dice rolls is " + result[0] + " it happened on the " + (result[1]+1) +);
-		
 	}
 	
 	private int[] longestConsecSeqAndPos(int[] arr) {
