@@ -13,6 +13,7 @@ public class Person {
 	private Borough home;
 	private Hobby hobby;
 	private Person[] friends;
+	private String nickname;
 	
 	public Person(String first, String last, Borough home) {
 		this.lastName = last;
@@ -20,9 +21,41 @@ public class Person {
 		this.home = home;
 		this.hobby = Hobby.randomHobby();
 		friends = new Person[3];
+		this.nickname = createNickname(firstName);
 		
 	}
 	
+	public static String createNickname(String name) {
+		String nickname = "";
+		int timesVow = 0;
+		int pos2Vow = 0;
+		for(int i = 0; i < name.length()-1; i++) {
+			if(isVowel(name.substring(i,i+1))) {
+				timesVow++;
+			}
+			if(timesVow == 2) {
+				pos2Vow = i;
+			}
+		}
+		if(timesVow == 1) {
+			return name;
+		}
+		else
+		{
+			nickname = name.substring(0,pos2Vow);
+		}
+		return nickname;
+	}
+	public static boolean isVowel(String p) {
+		if(p.equalsIgnoreCase("a") 
+			|| p.equalsIgnoreCase("e")
+			|| p.equalsIgnoreCase("i")
+			|| p.equalsIgnoreCase("o")
+			|| p.equalsIgnoreCase("u")) {
+			return true;
+		}
+		return false;
+	}
 	public void mingle(Person[] people) {
 		for(Person p : people) {
 			if(p != this) {
@@ -65,7 +98,14 @@ public class Person {
 		friends[0] = p;
 	}
 	public String toString() {
-		return "My name is "+firstName+ " " + lastName+ " and I live in " +home+". I like to "+hobby;
+		return "My name is "+firstName+ " " + lastName+ ". Call me "+nickname+".";
 	}
+
+	public String setFirstName(String string) {
+		this.firstName = string;
+		return firstName;
+	}
+
+
 }
 

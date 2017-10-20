@@ -9,8 +9,7 @@ public class ObjectArrays {
 		for(Object p : people) {
 			System.out.println(p);
 		}
-		Person[]group = selectGroup(people, 4);
-		System.out.println(Person.toString(group));
+		//Person[]group = selectGroup(people, 4);
 	}
 
 	private void populate(Object[] people) {
