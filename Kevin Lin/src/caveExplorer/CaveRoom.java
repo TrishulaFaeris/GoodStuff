@@ -126,6 +126,11 @@ public class CaveRoom {
 		return doors[direction];
 	}
 
+	public String getDirections() {
+		// TODO Auto-generated method stub
+		return directions;
+	}
+
 	
 	
 }
