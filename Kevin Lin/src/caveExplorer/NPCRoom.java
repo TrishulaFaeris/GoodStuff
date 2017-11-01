@@ -53,14 +53,16 @@ public class NPCRoom extends CaveRoom {
 		if(containsNPC()&&presentNPC.isActive()) {
 			return "M";
 		}else {
-			//return what whould be returned otherwise
+			//return what would be returned otherwise
 			return super.getContents();
 			}
 		}
 	public String getDescription() {
 		if(containsNPC() && !presentNPC.isActive()) {
 			return super.getDescription() + "\n" + presentNPC.getInactiveDescription();
-		}else
+		}else {
+			return super.getDescription() + "\n" + presentNPC.getActiveDescription();
+		}
 	}
 	
 	
