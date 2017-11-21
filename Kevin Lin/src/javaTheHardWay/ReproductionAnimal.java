@@ -10,7 +10,7 @@ public class ReproductionAnimal extends RoamingAnimal {
 		ReproductionAnimal youngAnimal = animal1.getOffspring(animal2);
 		while(youngAnimal == null) {
 			animal2 = new ReproductionAnimal(h);
-			youngAnimal = animal.getOffSpring(animal2);
+			youngAnimal = animal1.getOffspring(animal2);
 		}
 		System.out.println(animal1+" and a\n" + animal2);
 		System.out.println("had a baby and it was a\n"+youngAnimal);
@@ -42,10 +42,11 @@ public class ReproductionAnimal extends RoamingAnimal {
 				Animal baby = getOffspring((ReproductionAnimal) target);
 				if(baby != null) {
 					int litterSize = (int)(Math.random()* maxLitter);
-				}
+				
 				for(int j = 0; j < litterSize; j++) {
 					habitat.addAnimal(baby);
 					baby = getOffspring((ReproductionAnimal) target);
+					}
 				}
 				setMated(true);
 				target.setMated(true);
