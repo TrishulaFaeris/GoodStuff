@@ -55,19 +55,17 @@ public class Searching {
 
 
 	public static int binarySearch(int[] searchThis, int startIndex, int endIndex, int target) {
-		int middleNum = (int)((startIndex + endIndex)/2);
-		if(isGreaterThan(target, middleNum)) {
-			binarySearch(searchThis, middleNum, endIndex, target);
+		int middleNum = (startIndex + endIndex)/2;
+		if(searchThis[middleNum] == target) {
+			return middleNum;
+		}
+		else if(searchThis[middleNum] < target) {
+			binarySearch(searchThis, middleNum+1, endIndex, target);
 		}else {
-			binarySearch(searchThis, startIndex, middleNum, target);
+			binarySearch(searchThis, startIndex, middleNum-1, target);
 		}
+		return -1;
 		
-	}
-	public static boolean isGreaterThan(int one, int two) {
-		if(one >= two) {
-			return true;
-		}
-		return false;
 	}
 	private int search(int[] searchThis, int target) {
 
