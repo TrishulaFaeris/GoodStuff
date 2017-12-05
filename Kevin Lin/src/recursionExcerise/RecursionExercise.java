@@ -20,7 +20,7 @@ public class RecursionExercise {
 		int test = i;
 		if(value == 1) {
 			return 0;
-		}else if(value%i ==0s){
+		}else if(value%i ==0){
 		
 		}
 	}
