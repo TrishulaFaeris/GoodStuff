@@ -1,4 +1,4 @@
-package lionPuzzle;
+package recursionExcerise;
 
 public class ArtificialForLoop {
 
